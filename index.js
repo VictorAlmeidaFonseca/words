@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors')
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ cron.schedule('59 23 * * *' , async () => {
     timezone: "America/Sao_Paulo"
 })
 
+app.use(cors())
 
 app.get("/word", async (req, res, next) => {
   try {
