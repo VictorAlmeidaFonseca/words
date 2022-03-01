@@ -3,8 +3,8 @@ const mongo = require("mongodb");
 const uri = process.env.MONGO_URI;
 const client = new mongo.MongoClient(uri);
 
-const database = client.db("termo");
-const WORDS = database.collection("words");
+const database = client.db(process.env.MONGO_DB);
+const WORDS = database.collection(process.env.MONGO_COLLECTION)
 
 let conn = null
 
